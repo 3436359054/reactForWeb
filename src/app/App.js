@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
-import {Router, Route, browserHistory} from 'react-router'
+import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 import store from '../store'
 import {Provider} from 'react-redux'
 import {View as CommonWrapper} from '../components/commonWrapper/'
+import {View as Home} from '../pages/Home'
 import 'whatwg-fetch'
 import "babel-polyfill"
 import '../reset.css'
@@ -13,7 +14,9 @@ export default class App extends Component {
         <div className='main'>
           <Provider store={store}>
             <Router history={browserHistory}>
-              <Route path='/' component={CommonWrapper}></Route>
+              <Route path='/' component={CommonWrapper}>
+                <IndexRoute component={Home}></IndexRoute>
+              </Route>
             </Router>
           </Provider>
         </div>

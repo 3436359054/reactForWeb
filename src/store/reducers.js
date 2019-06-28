@@ -1,5 +1,7 @@
 import {combineReducers} from 'redux'
-import  commonReducer from '../components/commonWrapper/reducer'
+import  {reducer as commonReducer} from '../components/commonWrapper/'
+import  {reducer as homeReducer} from '../pages/Home'
 export default combineReducers({
-  common: commonReducer
+  common: commonReducer,
+  home: homeReducer
 })

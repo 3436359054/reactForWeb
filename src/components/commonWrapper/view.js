@@ -25,6 +25,7 @@ class CommonWrapper extends Component{
               </Menu>
             </Col>
           </Row>
+          <div className="listContainer">{this.props.children}</div>
         </div> 
       )
     }
