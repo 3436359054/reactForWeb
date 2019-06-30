@@ -3,6 +3,8 @@ import { Row, Col, Menu, Icon} from 'antd'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {getHeaderListAction} from './actionCreator'
+import {View as Footer} from '../commonWrapper/Footer'
+import {browserHistory} from 'react-router'
 import './style.css'
 class CommonWrapper extends Component{
   render () {
@@ -13,19 +15,20 @@ class CommonWrapper extends Component{
         <div className='common'>
           <Row>
             <Col span={6}>
-              <img className='common_logo' src={require('../../static/images/logo.jpg')} alt=""/>
+              <img className='common_logo' onClick={()=>{browserHistory.push('/')}} src={require('../../static/images/logo.jpg')} alt=""/>
             </Col>
             <Col span={18}>
               <Menu  mode="horizontal">
                 { 
                   this.props.common.list.map((item, index) => (
-                    <Menu.Item key={item.id}><Icon type="mail" />{item.cst}</Menu.Item>
+                    <Menu.Item key={item.id}><Icon type="read" />{item.cst}</Menu.Item>
                   ))
                 }
               </Menu>
             </Col>
           </Row>
           <div className="listContainer">{this.props.children}</div>
+          <Footer></Footer>
         </div> 
       )
     }
